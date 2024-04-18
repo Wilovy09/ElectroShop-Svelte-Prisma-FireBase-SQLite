@@ -1,0 +1,30 @@
+{
+	"name": "electroshop",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"api": "node --watch server/index.js"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"autoprefixer": "^10.4.19",
+		"postcss": "^8.4.38",
+		"prisma": "^5.12.1",
+		"svelte": "^4.2.7",
+		"tailwindcss": "^3.4.3",
+		"vite": "^5.0.3"
+	},
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^5.12.1",
+		"cors": "^2.8.5",
+		"express": "^4.19.2",
+		"firebase": "^10.11.0",
+		"sweetalert2": "^11.10.8"
+	}
+}

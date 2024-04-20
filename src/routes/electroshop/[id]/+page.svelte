@@ -130,6 +130,30 @@
         Base64String = dataAPI.imagen;
     }
 
+    function buy(){
+
+        if(count > dataAPI.stock){
+            Swal.fire({
+                title: "¡Error!",
+                text: `No hay suficiente stock para comprar ${count} productos, quedan ${dataAPI.stock} en stock.`,
+                icon: "error"
+            })
+            return;
+        } else if (count > 0){
+            Swal.fire({
+                title: "¡Producto comprado!",
+                text: `Se compraron ${count} correctamente.`,
+                icon: "success"
+            })
+        } else {
+            Swal.fire({
+                title: "¡Error!",
+                text: `No se puede comprar 0 productos.`,
+                icon: "error"
+            })
+        }
+    }
+
     onMount(() => {
         onAuthStateChanged(auth, (currentUser) => {
             user = currentUser;
@@ -171,7 +195,7 @@
                     <button on:click={increment} class="bg-white hover:bg-[#f0f0f0] transition-all p-4 rounded-r-xl">+</button>
                 </div>
             </div>
-            <button class="font-semibold w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
+            <button on:click={buy} class="font-semibold w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
         </div>
     </main>
 
@@ -258,7 +282,7 @@
                     <button on:click={increment} class="bg-white hover:bg-[#f0f0f0] transition-all p-4 rounded-r-xl">+</button>
                 </div>
             </div>
-            <button class="w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
+            <button on:click={buy} class="w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
         </div>
     </main>
 {/if}

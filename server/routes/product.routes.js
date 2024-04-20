@@ -42,6 +42,18 @@ router.get('/product/code/:codigo', async (req,res)=>{
     res.json(productFound);
 })
 
+// Ver un producto por nombre
+router.get('/product/name/:nombre', async (req,res)=>{
+    const productFound = await prisma.product.findFirst({
+        where:{
+            nombre: req.params.nombre,
+        },
+    })
+    if (!productFound)
+        return res.status(404).json({error: "Product not found"})
+    res.json(productFound);
+})
+
 // Ver un producto por categoria
 router.get('/product/cat/:categoria', async (req,res)=>{
     const productFound = await prisma.product.findMany({

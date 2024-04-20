@@ -15,7 +15,7 @@
 
     let codigoUser = "";
     async function searchCode(){
-        const url = `http://localhost:8000/api/product/code/${codigoUser}`;
+        const url = `http://localhost:8000/api/product/name/${codigoUser}`;
         const options = {
             method: 'GET',
             headers: {
@@ -34,8 +34,8 @@
             } else {
                 window.searchModal.close();
                 Swal.fire({
-                    title: `No se encontro ningun producto con el código.`,
-                    text: `Por favor, intenta con otro código.`,
+                    title: `No se encontro ningun producto con el nombre.`,
+                    text: `Por favor, intenta con otro nombre.`,
                     icon: "error"
                 });
             }

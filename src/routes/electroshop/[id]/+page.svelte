@@ -253,6 +253,7 @@
                 </div>
             </div>
             <button on:click={buy} class="font-semibold w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
+            <button on:click={alertAddToCart} class="mb-8 w-full bg-blue-500 hover:bg-blue-800 p-2 mt-2 rounded-xl text-white transition-all">Agregar al carrito</button>
         </div>
     </main>
 

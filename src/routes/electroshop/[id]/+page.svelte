@@ -154,6 +154,66 @@
         }
     }
 
+    function addToCart(data, count, id){
+        /*
+        * TODO: Hacer que pueda haber mas de un producto en el carrito 
+        * y que se guarde en el localStorage en un mismo "objeto".
+        */
+        let product = {
+            id: data.id,
+            nombre: data.nombre,
+            marca: data.marca,
+            codigo: data.codigo,
+            stock: data.stock,
+            precio: data.precio,
+            categoria: data.categoria,
+            descripcion: data.descripcion,
+            imagen: data.imagen,
+            cantidad: count
+        }
+
+
+        localStorage.setItem('producto', JSON.stringify(product));
+        
+        var productRecuperado = JSON.parse(localStorage.getItem('producto'));
+        
+        console.log(productRecuperado);
+    }
+    function alertAddToCart(){
+        if(count > dataAPI.stock){
+            Swal.fire({
+                title: "¡Error!",
+                text: `No hay suficiente stock para comprar ${count} productos, quedan ${dataAPI.stock} en stock.`,
+                icon: "error"
+            })
+            return;
+        } else if (count > 0){
+            let data = {
+                id: dataAPI.id,
+                nombre: dataAPI.nombre,
+                marca: dataAPI.marca,
+                codigo: dataAPI.codigo,
+                stock: dataAPI.stock,
+                precio: dataAPI.precio,
+                categoria: dataAPI.categoria,
+                descripcion: dataAPI.descripcion,
+                imagen: dataAPI.imagen
+            };
+            addToCart(data, count);
+            Swal.fire({
+                title: "¡Producto agregado al carrito!",
+                text: `Se agrego ${count} ${dataAPI.nombre} al carrito correctamente.`,
+                icon: "success"
+            })
+        } else {
+            Swal.fire({
+                title: "¡Error!",
+                text: `No se puede comprar 0 productos.`,
+                icon: "error"
+            })
+        }
+    }
+
     onMount(() => {
         onAuthStateChanged(auth, (currentUser) => {
             user = currentUser;
@@ -283,6 +343,7 @@
                 </div>
             </div>
             <button on:click={buy} class="w-full bg-indigo-500 hover:bg-indigo-800 p-2 mt-2 rounded-xl text-white transition-all">Comprar</button>
+            <button on:click={alertAddToCart} class="mb-8 w-full bg-blue-500 hover:bg-blue-800 p-2 mt-2 rounded-xl text-white transition-all">Agregar al carrito</button>
         </div>
     </main>
 {/if}

@@ -51,8 +51,19 @@
             <span class="text-black">ElectroShop</span>
         </a>
     </div>
-    <label for="menu-toggle" class="cursor-pointer lg:hidden block">
-        <svg class="fill-current text-black" width="20" height="20" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+    <li class="">
+        <a class="inline-flex items-center px-5 group lg:mt-1.5" href="/electroshop/cart">
+            <svg class="font-bold text-black group-hover:text-[#888888]" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 17h-11v-14h-2" />
+                <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+        </a>
+    </li>
+    <label for="menu-toggle" class="cursor-pointer mt-[-0.20rem] lg:hidden block">
+        <svg class="fill-current text-black hover:text-[#888888]" width="20" height="20" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
     </label> 
     <input class="hidden svelte-1ah0gke" type="checkbox" id="menu-toggle" />
     <div class="hidden lg:flex lg:items-center lg:w-auto w-full svelte-1ah0gke" id="menu">

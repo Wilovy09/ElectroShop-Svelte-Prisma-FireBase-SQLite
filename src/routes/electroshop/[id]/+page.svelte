@@ -154,12 +154,14 @@
         }
     }
 
-    function addToCart(data, count, id){
+    function addToCart(data, count) {
         /*
         * TODO: Hacer que pueda haber mas de un producto en el carrito 
         * y que se guarde en el localStorage en un mismo "objeto".
         */
-        let product = {
+        let products = JSON.parse(localStorage.getItem('producto')) || [];
+
+        products.push({
             id: data.id,
             nombre: data.nombre,
             marca: data.marca,
@@ -170,14 +172,9 @@
             descripcion: data.descripcion,
             imagen: data.imagen,
             cantidad: count
-        }
+        });
 
-
-        localStorage.setItem('producto', JSON.stringify(product));
-        
-        var productRecuperado = JSON.parse(localStorage.getItem('producto'));
-        
-        console.log(productRecuperado);
+        localStorage.setItem('producto', JSON.stringify(products));
     }
     function alertAddToCart(){
         if(count > dataAPI.stock){
